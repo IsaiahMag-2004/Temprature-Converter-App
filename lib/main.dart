@@ -1,10 +1,8 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends Statefulwidget {
+class MyApp extends StatelessWidget {
   @override
   build(BuildContext context) {
     return MaterialApp(
@@ -22,9 +20,9 @@ class TempApp extends StatefulWidget {
 }
 
 class TempState extends State<TempApp> {
-  double input;
-  double output;
-  bool fOrC;
+  late double input;
+  late double output;
+  late bool fOrC;
 
   @override
   void initState() {
@@ -45,13 +43,21 @@ class TempState extends State<TempApp> {
           input = 0.0;    //Input set if the user dose use a string over a number
         }
       },
-      decoration: 
+      decoration: InputDecoration(
+        labelText: "Input a value in ${fOrC == false ? "Fahrenheit" : "Celsius"}"
+      ),
     );
+    AppBar appBar = AppBar(
+      title: Text("Temprature Calculator"),
+      );
+
 
     return Scaffold(
+      appBar: appBar,
       body: Container(
+        padding: EdgeInsets.all(10.0),
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[inputField],
         ),
       ),
     );
