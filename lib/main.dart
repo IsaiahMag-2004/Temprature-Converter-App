@@ -52,21 +52,21 @@ class TempState extends State<TempApp> {
       );
 
 
-    Container tempSwitch = Container(
-      child: Column(
-        children: <Widget>[
-          Text("Choose Fahrenheit or Celsius"),
-          Switch(
-            value: fOrC, //What we want it bound to 
-            onChanged:  (e) { //What we want to change when button is clicked
-              setState(() {
-                fOrC = !fOrC;
-              });
-            },
-          )
-      ],
-     ),
-    );
+    // Container tempSwitch = Container(
+    //   child: Column(
+    //     children: <Widget>[
+    //       Text("Choose Fahrenheit or Celsius"),
+    //       Switch(
+    //         value: fOrC, //What we want it bound to 
+    //         onChanged:  (e) { //What we want to change when button is clicked
+    //           setState(() {
+    //             fOrC = !fOrC;
+    //           });
+    //         },
+    //       )
+    //   ],
+    //  ),
+    // );
 
 
     return Scaffold(
