@@ -1,10 +1,8 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends Statefulwidget {
+class MyApp extends StatelessWidget {
   @override
   build(BuildContext context) {
     return MaterialApp(
@@ -22,9 +20,9 @@ class TempApp extends StatefulWidget {
 }
 
 class TempState extends State<TempApp> {
-  double input;
-  double output;
-  bool fOrC;
+  late double input;
+  late double output;
+  late bool fOrC;
 
   @override
   void initState() {
@@ -53,7 +51,7 @@ class TempState extends State<TempApp> {
     return Scaffold(
       body: Container(
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[inputField],
         ),
       ),
     );
