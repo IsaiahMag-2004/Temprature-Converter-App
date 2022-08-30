@@ -47,8 +47,13 @@ class TempState extends State<TempApp> {
         labelText: "Input a value in ${fOrC == false ? "Fahrenheit" : "Celsius"}"
       ),
     );
+    AppBar appBar = AppBar(
+      title: Text("Temprature Calculator"),
+      );
+
 
     return Scaffold(
+      appBar: appBar,
       body: Container(
         child: Column(
           children: <Widget>[inputField],
