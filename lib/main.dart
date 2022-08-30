@@ -55,6 +55,7 @@ class TempState extends State<TempApp> {
     return Scaffold(
       appBar: appBar,
       body: Container(
+        padding: EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[inputField],
         ),
