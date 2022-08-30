@@ -52,10 +52,10 @@ class TempState extends State<TempApp> {
       );
 
 
-    // Container tempSwitch = Container(
-    //   child: Column(
-    //     children: <Widget>[
-    //       Text("Choose Fahrenheit or Celsius"),
+    Container tempSwitch = Container(
+      child: Column(
+        children: <Widget>[
+          Text("Choose Fahrenheit or Celsius"),
     //       Switch(
     //         value: fOrC, //What we want it bound to 
     //         onChanged:  (e) { //What we want to change when button is clicked
@@ -64,11 +64,19 @@ class TempState extends State<TempApp> {
     //           });
     //         },
     //       )
-    //   ],
-    //  ),
-    // );
-
-
+              Checkbox(
+                value: fOrC,
+                onChanged: (e) {
+                  setState(() {
+                    fOrC = !fOrC;
+                  });
+                },
+              ),
+      ],
+     ),
+    );
+    
+    
     return Scaffold(
       appBar: appBar,
       body: Container(
