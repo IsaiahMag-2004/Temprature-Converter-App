@@ -45,7 +45,9 @@ class TempState extends State<TempApp> {
           input = 0.0;    //Input set if the user dose use a string over a number
         }
       },
-      decoration: 
+      decoration: InputDecoration(
+        labelText: "Input a value in ${fOrC == false ? "Fahrenheit" : "Celsius"}"
+      ),
     );
 
     return Scaffold(
