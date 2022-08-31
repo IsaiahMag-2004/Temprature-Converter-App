@@ -48,14 +48,15 @@ class TempState extends State<TempApp> {
           labelText:
               "Input a value in ${fOrC == false ? "Fahrenheit" : "Celsius"}"),
     );
+    
     AppBar appBar = AppBar(
       title: Text("Temprature Calculator"),
     );
 
-    Container tempSwitch = Container(
+    Container fahrenheitRadioButton = Container(
       child: Column(
         children: <Widget>[
-          Text("Choose Fahrenheit or Celsius"),
+          // Text("Choose Fahrenheit or Celsius"),
           //       Switch(
           //         value: fOrC, //What we want it bound to
           //         onChanged:  (e) { //What we want to change when button is clicked
@@ -81,6 +82,13 @@ class TempState extends State<TempApp> {
                   fOrC = !fOrC;
                 });
               }),
+        ],
+      ),
+    );
+
+    Container celsiusRadioButton = Container(
+      child: Column(
+        children: <Widget>[
           Text("C"),
           Radio<bool>(
               groupValue: fOrC,
@@ -94,12 +102,22 @@ class TempState extends State<TempApp> {
       ),
     );
 
+    Container containerForRadioButtons = Container(
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[fahrenheitRadioButton, celsiusRadioButton]),
+    );
+    
     return Scaffold(
       appBar: appBar,
       body: Container(
         padding: EdgeInsets.all(10.0),
         child: Column(
-          children: <Widget>[inputField, tempSwitch],
+          children: <Widget>[
+            inputField,
+            Text("Choose Fahrenheit or Celsius"),
+            containerForRadioButtons
+          ],
         ),
       ),
     );
