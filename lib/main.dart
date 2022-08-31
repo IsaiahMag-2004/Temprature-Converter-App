@@ -48,6 +48,7 @@ class TempState extends State<TempApp> {
           labelText:
               "Input a value in ${fOrC == false ? "Fahrenheit" : "Celsius"}"),
     );
+    
     AppBar appBar = AppBar(
       title: Text("Temprature Calculator"),
     );
@@ -85,7 +86,7 @@ class TempState extends State<TempApp> {
       ),
     );
 
-Container celsiusRadioButton = Container(
+    Container celsiusRadioButton = Container(
       child: Column(
         children: <Widget>[
           Text("C"),
@@ -100,19 +101,23 @@ Container celsiusRadioButton = Container(
         ],
       ),
     );
-    
-    Container containerForButtons = Container(
+
+    Container containerForRadioButtons = Container(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[fahrenheitRadioButton, celsiusRadioButton]
-      ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[fahrenheitRadioButton, celsiusRadioButton]),
     );
+    
     return Scaffold(
       appBar: appBar,
       body: Container(
         padding: EdgeInsets.all(10.0),
         child: Column(
-          children: <Widget>[inputField, Text("Choose Fahrenheit or Celsius"), containerForButtons],
+          children: <Widget>[
+            inputField,
+            Text("Choose Fahrenheit or Celsius"),
+            containerForRadioButtons
+          ],
         ),
       ),
     );
