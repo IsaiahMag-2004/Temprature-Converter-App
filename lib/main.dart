@@ -8,8 +8,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.green,
-        ),
-        home: TempApp(),
+      ),
+      home: TempApp(),
     );
   }
 }
@@ -35,48 +35,65 @@ class TempState extends State<TempApp> {
   @override
   Widget build(BuildContext context) {
     TextField inputField = TextField(
-      keyboardType: TextInputType.number, 
-      onChanged: (str){     //Run everytime user trys to type in a string instead of a number
+      keyboardType: TextInputType.number,
+      onChanged: (str) {
+        //Run everytime user trys to type in a string instead of a number
         try {
           input = double.parse(str);
-        } catch(e) {
-          input = 0.0;    //Input set if the user dose use a string over a number
+        } catch (e) {
+          input = 0.0; //Input set if the user dose use a string over a number
         }
       },
       decoration: InputDecoration(
-        labelText: "Input a value in ${fOrC == false ? "Fahrenheit" : "Celsius"}"
-      ),
+          labelText:
+              "Input a value in ${fOrC == false ? "Fahrenheit" : "Celsius"}"),
     );
     AppBar appBar = AppBar(
       title: Text("Temprature Calculator"),
-      );
-
+    );
 
     Container tempSwitch = Container(
       child: Column(
         children: <Widget>[
           Text("Choose Fahrenheit or Celsius"),
-    //       Switch(
-    //         value: fOrC, //What we want it bound to 
-    //         onChanged:  (e) { //What we want to change when button is clicked
-    //           setState(() {
-    //             fOrC = !fOrC;
-    //           });
-    //         },
-    //       )
-              Checkbox(
-                value: fOrC,
-                onChanged: (e) {
-                  setState(() {
-                    fOrC = !fOrC;
-                  });
-                },
-              ),
-      ],
-     ),
+          //       Switch(
+          //         value: fOrC, //What we want it bound to
+          //         onChanged:  (e) { //What we want to change when button is clicked
+          //           setState(() {
+          //             fOrC = !fOrC;
+          //           });
+          //         },
+          //       )
+          // Checkbox(
+          //   value: fOrC,
+          //   onChanged: (e) {
+          //     setState(() {
+          //       fOrC = !fOrC;
+          //     });
+          //   },
+          // ),
+          Text("F"),
+          Radio<bool>(
+              groupValue: fOrC,
+              value: false,
+              onChanged: (v) {
+                setState(() {
+                  fOrC = !fOrC;
+                });
+              }),
+          Text("C"),
+          Radio<bool>(
+              groupValue: fOrC,
+              value: true,
+              onChanged: (v) {
+                setState(() {
+                  fOrC = !fOrC;
+                });
+              }),
+        ],
+      ),
     );
-    
-    
+
     return Scaffold(
       appBar: appBar,
       body: Container(
@@ -88,6 +105,3 @@ class TempState extends State<TempApp> {
     );
   }
 }
-
-
-
